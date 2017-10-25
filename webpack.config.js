@@ -1,5 +1,6 @@
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -11,8 +12,11 @@ module.exports = {
 	},
 	output: {
 		path: __dirname + '/dist', //windows    必须是‘/’才可
-		filename: 'js/[name]-[hash].js' // [name]:entry中的对象
+		filename: 'src/[name]-[hash].js' // [name]:entry中的对象
 			//publicPath: '127.0.0.1/'//生成js的根目录 上线时用到
+	},
+	externals:{
+		'jquery':'window.jQuery'
 	},
 	module: {
 		loaders: [{
@@ -75,13 +79,22 @@ module.exports = {
 		//			chunks:['main']//针对index  引入  js
 		//		}),
 		new htmlWebpackPlugin({
-			filename: 'main.html',
+			filename: 'index.html',
 			template: 'main.html',
 			inject: 'body',
 			title: '马儿乖啊  >.<'
 				//			,
 				//			title: '哈哈哈哈哈！',
 				//			excludeChunks:['main']  //针对  main。html  引入 除了main以外的js
-		})
-	]
+		}),
+		 // 打开浏览器
+        new OpenBrowserPlugin({
+          url: 'http://localhost:8080'
+        }),
+
+	],
+	devServer:{
+		contentBase:'/dist',
+		inline:true
+	}
 }

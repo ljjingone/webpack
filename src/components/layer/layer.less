@@ -1,18 +1,57 @@
-@import './aa.less';
-.layer{
-	width: 500px;
-	height: 400px;
-	background: yellow;
-	>div{
-		width: 200px;
-		height: 200px;
-		background: red;
-	}
-	>.aa{
-		font-size: 40px;
-		margin-top: 10px;
-	}
-	.flex_div{
-	display: flex;
-	}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header{
+    height: 90px;
+    background: #eee;
+    >ul{
+        width: 1200px;
+        height: 90px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content:center;
+        margin: 0  auto;
+        padding: 10px 0;
+        >li{
+            color: #000;
+            font-size: 18px;
+            line-height: 70px;
+            width: 178px;
+            text-align: center;
+            border:1px solid #fff;
+            list-style: none;
+            margin-right: 10px;
+            padding: 0 50px;
+            position: relative;
+            cursor: pointer;
+            >.hide{
+                width: 178px;
+                height: auto;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                display: none;
+                >ul{
+                    
+                    >li{
+                        height: 40px;
+                        cursor: pointer;
+                        border-bottom: 1px dashed #eee;
+                        list-style: none;
+                        background: #abc;
+                        line-height: 40px;
+                        color: #333;
+                    }
+                    >li:hover{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+//      >li:hover .hide{
+//          display: block;
+//      }
+    }
 }

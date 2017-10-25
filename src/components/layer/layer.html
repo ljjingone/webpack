@@ -1,4 +1,29 @@
-<div class="layer">
-	<div>this is 马儿</div>
-	<div class="aa">ti is  乖得</div>
-</div>
+<header>
+	<ul>
+		<li>首页
+			<div class="hide">
+				<ul>
+					<li>场景</li>
+					<li>简介</li>
+				</ul>
+			</div>
+		</li>
+		<li>产品
+		<div class="hide">
+				<ul>
+					<li>场景</li>
+					<li>简介</li>
+				</ul>
+			</div></li>
+		<li>服务</li>
+		<li>联系</li>
+		<li>展示</li>
+	</ul>
+</header>
+<script type="text/javascript">
+	$(function(){
+		$("header>ul>li").hover(function(){
+			$(this).find(".hide").slideToggle();
+		})
+	})
+</script>
